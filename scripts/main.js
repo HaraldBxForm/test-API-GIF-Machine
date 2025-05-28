@@ -7,18 +7,15 @@ const numberInput = document.querySelector(`.number-input`);
 
 async function getGif() {
   try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${encodeURIComponent(searchInput.value)}&api_key=GEmjEES5bxqnnyJA6fETMXMRRlq8ssOX&limit=${numberInput.value}`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${(searchInput.value)}&api_key=GEmjEES5bxqnnyJA6fETMXMRRlq8ssOX&limit=${numberInput.value}`);
     const data = await response.json();
     console.log(data);
     
     return data.data.map(gif => gif.images.fixed_height.url); 
   } catch (error) {
     console.error("Erreur :", error);
-    return [];
   }
 }
-
-// getGif()
 
 async function displayGIF() {
   const imagesList = await getGif();
