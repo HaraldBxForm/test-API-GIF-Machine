@@ -22,7 +22,7 @@ async function displayGIF() {
     displayedGIFS.innerHTML = ``;
 
     imagesList.forEach(element => {
-        displayedGIFS.innerHTML += `<div class="data-element"><img src="${element}" alt="Random Fox"></div>`;
+        displayedGIFS.innerHTML += `<a class="data-element" href="${element}"><img src="${element}" alt="Random Fox"></a>`;
     });
 }
 
